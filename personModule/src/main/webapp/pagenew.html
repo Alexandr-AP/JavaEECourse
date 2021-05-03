@@ -1,0 +1,60 @@
+><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#submit').click(  function () {
+                console.log("click");
+                var sendData = $('#data').val();
+
+                $.ajax({
+                    url: 'http://localhost:8080/internetbanking/message',    //Your api url
+                    type: 'PUT',   //type is any HTTP method
+                    data: {
+                        data: sendData
+                    },      //Data as js object
+                    success: function () {
+                    }
+                })
+                ;
+
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+<b></b>
+<h1 id="myZagolovokOne">Helllo Guuuuys</h1></b>
+
+
+<form action="message" method="get">
+    <input type="text" name="TextName" value="Igor"/>
+    <input type="number" name="NumerName" value="23"/>
+    <button>Send get request</button>
+</form>
+
+
+<br>
+
+<form action="message" method="post">
+    <input type="text" name="TextName" value="Igor"/>
+    <input type="number" name="NumerName" value="23"/>
+    <button>Send post request</button>
+</form>
+
+<form>
+    Data:<br>
+    <input id="data" type="text" name="data" value="Mickey"><br>
+    <input id="submit" type="button" value="Submit">
+</form>
+
+</body>
+</html>
